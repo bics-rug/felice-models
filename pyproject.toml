@@ -1,0 +1,66 @@
+[project]
+name = "felice"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "boilerplot@git+https://github.com/fehlings/boilerplot",
+    "diffrax>=0.7.0",
+    "einops>=0.8.2",
+    "equinox>=0.13.2",
+    "ipykernel>=6.0.0",
+    "ipywidgets>=8.1.8",
+    "jax>=0.9.0",
+    "jaxtyping>=0.3.4",
+    "marimo>=0.19.4",
+    "matplotlib>=3.10.8",
+    "optax>=0.2.6",
+    "pandas>=2.3.3",
+    "plotly>=6.5.2",
+    "pyarrow>=22.0.0",
+    "pyqt5>=5.15.11",
+    "scikit-learn>=1.8.0",
+    "seaborn>=0.13.2",
+    "tqdm>=4.67.1",
+    "wigglystuff>=0.2.14",
+]
+
+[project.optional-dependencies]
+cuda13 = ["jax[cuda13]>=0.9.0"]
+cuda12 = ["jax[cuda12]>=0.9.0"]
+mps = ["jax-mps>=0.9.4"]
+local = []
+
+[project.scripts]
+felice = "felice.gui.launcher:main"
+
+[dependency-groups]
+dev = [
+    "mkdocs>=1.6.1",
+    "mkdocs-jupyter>=0.25.0",
+    "mkdocs-material>=9.7.0",
+    "mkdocs-print-site-plugin>=2.8",
+    "mkdocs-to-pdf>=0.10.1",
+    "mkdocstrings-python>=2.0.1",
+    "pre-commit>=4.5.1",
+    "pymdown-extensions>=10.20",
+    "pytest>=9.0.2",
+    "pytest-sugar>=1.1.1",
+    "ruff>=0.14.9",
+    "tox>=4.33.0",
+    "tox-uv>=1.29.0",
+]
+
+[tool.ruff]
+extend-include = ["*.ipynb"]
+
+[tool.ruff.lint]
+ignore = ["F722"]
+
+[tool.mypy]
+disable_error_code = ["import-untyped"]
+
+[build-system]
+requires = ["uv_build>=0.9.11,<0.10.0"]
+build-backend = "uv_build"
