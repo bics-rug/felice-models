@@ -323,17 +323,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Start
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -923,17 +912,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Start
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -962,7 +940,7 @@
 <h1 id="felice">Felice</h1>
 <p>This project provides a <a href="https://github.com/google/jax">JAX</a> implementation of the different neuron models in felice</p>
 <h2 id="overview">Overview</h2>
-<p>The framework is built on top of <a href="">EventPropJax</a> and leverages JAX's automatic differentiation for efficient simulation and training of SNNs using event-based exact gradients.</p>
+<p>The framework is built on top of diffrax and leverages JAX's automatic differentiation for efficient simulation and training of analogue models.</p>
 <h3 id="key-features">Key Features</h3>
 <ul>
 <li><strong>Delay learning</strong></li>
@@ -980,37 +958,6 @@
 <h3 id="cuda-support-optional">CUDA Support (Optional)</h3>
 <p>For GPU acceleration with CUDA 13:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>uv<span class="w"> </span>sync<span class="w"> </span>--extra<span class="w"> </span>cuda
-</span></code></pre></div>
-<h2 id="quick-start">Quick Start</h2>
-<p>Here's a simple example using the WereRabbit neuron model:</p>
-<div class="language-py highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">diffrax</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dfx</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jax.random</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jrand</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">eventpropjax.evnn</span><span class="w"> </span><span class="kn">import</span> <span class="n">FFEvNN</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">felice.neuron_models</span><span class="w"> </span><span class="kn">import</span> <span class="n">WereRabbit</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Initialize random key and parameters</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">key</span> <span class="o">=</span> <span class="n">jrand</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">max_time</span> <span class="o">=</span> <span class="mf">300e-3</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># Create a feedforward event-driven neural network</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">snn</span> <span class="o">=</span> <span class="n">FFEvNN</span><span class="p">(</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="n">layers</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="n">in_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="n">neuron_model</span><span class="o">=</span><span class="n">WereRabbit</span><span class="p">,</span>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="n">solver</span><span class="o">=</span><span class="n">dfx</span><span class="o">.</span><span class="n">Tsit5</span><span class="p">(),</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    <span class="n">max_solver_time</span><span class="o">=</span><span class="n">max_time</span><span class="p">,</span>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">,</span>
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    <span class="n">max_event_steps</span><span class="o">=</span><span class="mi">1000000</span><span class="p">,</span>
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    <span class="n">solver_stepsize</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span>
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    <span class="n">rtol</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>    <span class="n">atol</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
-</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>    <span class="n">Ibias</span><span class="o">=</span><span class="mf">30e-12</span><span class="p">,</span>
-</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="p">)</span>
-</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>
-</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="c1"># Simulate with input spikes</span>
-</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="n">in_spikes</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">asarray</span><span class="p">([[</span><span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.157</span><span class="p">]])</span>
-</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="n">spikes</span> <span class="o">=</span> <span class="n">snn</span><span class="o">.</span><span class="n">spikes_until_t</span><span class="p">(</span><span class="n">in_spikes</span><span class="p">,</span> <span class="n">max_time</span><span class="p">)</span>
 </span></code></pre></div>
 <p>See the <a href="scripts/examples/neuron_models/">examples</a> directory for more detailed usage examples.</p>
 
