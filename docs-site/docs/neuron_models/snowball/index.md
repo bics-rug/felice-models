@@ -7,7 +7,7 @@ Input current mirror W/l = 0.2 <br>
 All other transistors W/L = 4/3
 ## Circuit Simulation
 
-![snowball, output plot](/docs-site/docs/img/exif_plot.png) Fig.1 The dynamics of Exponential integrate and fire neuron. The light blue signal is the input spikes, the yellow signal is the membrane potential and the dark blue is the output spikes from the neuron.
+![snowball, output plot](exif_plot.png) Fig.1 The dynamics of Exponential integrate and fire neuron. The light blue signal is the input spikes, the yellow signal is the membrane potential and the dark blue is the output spikes from the neuron.
 ## References
 1. Rubino, Arianna, Melika Payvand, and Giacomo Indiveri. "Ultra-low power silicon neuron circuit for extreme-edge neuromorphic intelligence." 2019 26th IEEE International Conference on Electronics, Circuits and Systems (ICECS). IEEE, 2019.
 2. Bartolozzi, Chiara, Srinjoy Mitra, and Giacomo Indiveri. "An ultra low power current-mode filter for neuromorphic systems and biomedical signal processing." 2006 IEEE Biomedical Circuits and Systems Conference. IEEE, 2006.

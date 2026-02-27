@@ -27,6 +27,8 @@ nav:
       - Example: neuron_models/fhn/fhn.ipynb
     - Snowball:
       - Description: neuron_models/snowball/index.md
+    - LIF:
+      - Description: neuron_models/lif/index.md
   - API Reference:
     - api/index.md
     - Neuron Models: api/neuron_models.md

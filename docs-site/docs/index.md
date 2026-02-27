@@ -30,4 +30,4 @@ For GPU acceleration with CUDA 13:
 uv sync --extra cuda
 ```
 
-See the [examples](scripts/examples/neuron_models/) directory for more detailed usage examples.
+See the [examples](https://github.com/bics-rug/felice-models/tree/main/scripts/examples/neuron_models) directory for more detailed usage examples.
